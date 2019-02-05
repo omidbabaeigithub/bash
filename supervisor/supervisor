@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #https://google.github.io/styleguide/shell.xml
 
 configFile=./config/config.json
@@ -7,11 +8,12 @@ logFile=./logs/supervisor.log
 
 configParams=(serviceName checkInterval backOffNum restartAttemptsInterval)
 
-function fetchConfig {
-	log "|-Fetch configs"
+function fetchConfigs {
+	log "|_Fetch configs"
 	for param in ${configParams[@]}
-	do
+	do		
 		eval "${param}=$(jq .${param} ${configFile})"
+		log "|__>${param} fetched as ${!param}"
 	done
 }
 
@@ -53,7 +55,10 @@ function backOff {
 	exit
 }
 
-fetchConfig
+
+# Main function
+
+fetchConfigs
 while true
 do
 	if ! isAlive
