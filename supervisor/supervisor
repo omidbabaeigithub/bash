@@ -1,28 +1,67 @@
 #!/bin/bash
-
+#https://google.github.io/styleguide/shell.xml
 serviceName=$1
 checkInterval=$2
 backOffNum=$3
 restartAttemptsInterval=$4
+
 serviceDirectory=./services
+logFile=./logs/supervisor.log
+
+function log {
+	echo [$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@ >> ${logFile}
+}
+
+function isAlive {
+	pgrep -x ${serviceName} >/dev/null
+}
+
+function startService {
+	nohup ${serviceDirectory}/${serviceName} >/dev/null 2>&1 &
+}
+
+function startAttempt {
+	log "|_Attempting start the service ${serviceName}"
+	for try in $(seq 1 ${backOffNum})
+	do
+		if ! isAlive
+		then
+			log "|__>try ${try} of ${backOffNum} to start ${serviceName}"
+			startService	
+		else
+			break
+		fi
+		sleep ${restartAttemptsInterval}
+	done
+	log "${try} ${backOffNum}"
+	if [[ (${try} -eq ${backOffNum}) && (! isAlive) ]]
+	then
+		echo "backoff"
+	else
+		echo "continue"
+	fi
+}
+
+function backOff {
+	log "After ${backOffNum} tries ${serviceName} could not be started --> BackOff and Exit"
+	exit
+}
 
 while true
 do
-	if pgrep -x ${serviceName} >/dev/null
+	if ! isAlive
 	then
-		echo ${serviceName} is alive
+		log "${serviceName} is not alive --> Attempt to start"
+		result= $(startAttempt)
+		log "result=${result}"
+		if [[ ${result} -eq "backoff" ]]
+		then
+			backOff
+		fi		
 	else
-		echo ${serviceName} is not alive
-		for i in {1..${backOffNum}}
-		do
-			if ! pgrep -x ${serviceName} >/dev/null
-			then
-				nohup ${serviceDirectory}/${serviceName} >/dev/null 2>&1 &	
-			fi
-			sleep ${restartAttemptsInterval}
-		done
-		echo $i
+		log "${serviceName} is alive --> Check again ${checkInterval} seconds later"
 	fi
 	sleep ${checkInterval}
 done
+
 
