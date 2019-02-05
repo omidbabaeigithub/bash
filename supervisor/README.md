@@ -10,3 +10,5 @@ Input parameters:
     ]
     
 It also generate logs in case of events.
+
+Main script is supervisor
