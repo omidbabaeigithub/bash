@@ -12,4 +12,5 @@ Input parameters:
 It also generate logs in case of events.
 
 __Main__ *script* is supervisor.
+https://commonmark.org/help/tutorial/
 
