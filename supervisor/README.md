@@ -1,5 +1,5 @@
 # bash
-A Daemon Supervisor which should check that the process is running and at all times and starts it in case is down. 
+## A Daemon Supervisor which should check that the process is running and at all times and starts it in case is down. 
 
 Input parameters:
     [
@@ -11,4 +11,5 @@ Input parameters:
     
 It also generate logs in case of events.
 
-Main script is supervisor
+__Main__ *script* is supervisor.
+
