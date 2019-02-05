@@ -1,0 +1,28 @@
+#!/bin/bash
+
+serviceName=$1
+checkInterval=$2
+backOffNum=$3
+restartAttemptsInterval=$4
+serviceDirectory=./services
+
+while true
+do
+	if pgrep -x ${serviceName} >/dev/null
+	then
+		echo ${serviceName} is alive
+	else
+		echo ${serviceName} is not alive
+		for i in {1..${backOffNum}}
+		do
+			if ! pgrep -x ${serviceName} >/dev/null
+			then
+				nohup ${serviceDirectory}/${serviceName} >/dev/null 2>&1 &	
+			fi
+			sleep ${restartAttemptsInterval}
+		done
+		echo $i
+	fi
+	sleep ${checkInterval}
+done
+
