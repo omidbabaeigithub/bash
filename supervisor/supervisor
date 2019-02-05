@@ -3,27 +3,27 @@
 # Check health of a specified process or service that is defined in server directory
 # Change config/config.json parameters to handle the behaviour of daemon
 
-configFile=./config/config.json
-serviceDirectory=./services
-logDir=./logs
-logFile="${logDir}"/supervisor.log
+CONFIG_FILE=./config/config.json
+SERVICE_DIR=./services
+LOG_DIR=./logs
+LOG_FILE="${LOG_DIR}"/supervisor.log
 
-configParams=(serviceName checkInterval backOffNum restartAttemptsInterval)
-files=(configFile serviceDirectory)
+CONFIG_PARAMS=(serviceName checkInterval backOffNum restartAttemptsInterval)
+FILES=(CONFIG_FILE SERVICE_DIR)
 
 #######################################
 # Create log directory and check  
 # 	essential directories
 # Globals:
-#   logDir
+#   LOG_DIR
 # Arguments:
 #   None
 # Returns:
 #   None
 #######################################
 function initialization {
-	mkdir "${logDir}" 2>/dev/null
-	for file in "${files[@]}"; do
+	mkdir "${LOG_DIR}" 2>/dev/null
+	for file in "${FILES[@]}"; do
 		if [[ ! -f "${!file}" ]]; then
 			log "${!file} does not exist --> Exit"
 			exit
@@ -35,8 +35,8 @@ function initialization {
 # Fetch config parameters from 
 # 	config/config.json
 # Globals:
-#   configParams
-#   configFile
+#   CONFIG_PARAMS
+#   CONFIG_FILE
 # Arguments:
 #   None
 # Returns:
@@ -44,8 +44,8 @@ function initialization {
 #######################################
 function fetchConfigs {
 	log "|_Fetch configs"
-	for param in ${configParams[@]}; do
-		eval "${param}=$(jq .${param} ${configFile})"
+	for param in ${CONFIG_PARAMS[@]}; do
+		eval "${param}=$(jq .${param} ${CONFIG_FILE})"
 		log "|__>${param} fetched as ${!param}"
 	done
 }
@@ -53,14 +53,14 @@ function fetchConfigs {
 #######################################
 # Logging 
 # Globals:
-#   logFile
+#   LOG_FILE
 # Arguments:
 #   A Text
 # Returns:
 #   None
 #######################################
 function log {
-	echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >> ${logFile}
+	echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >> ${LOG_FILE}
 }
 
 #######################################
@@ -81,21 +81,21 @@ function isAlive {
 # Start the process or service   
 # Globals:
 #   serviceName
-#	serviceDirectory
+#	SERVICE_DIR
 # Arguments:
 #   None
 # Returns:
 #   None
 #######################################
 function startService {
-	nohup "${serviceDirectory}/${serviceName}" >/dev/null 2>&1 &
+	nohup "${SERVICE_DIR}/${serviceName}" >/dev/null 2>&1 &
 }
 
 #######################################
 # Attempt to start the process or service   
 # Globals:
 #   serviceName
-#	serviceDirectory
+#	SERVICE_DIR
 #	backOffNum
 #	restartAttemptsInterval
 # Arguments:
