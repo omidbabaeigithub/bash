@@ -11,3 +11,85 @@
 [2019-02-05T15:11:32+0330]: |__>try 4 of 5 to start echoService
 [2019-02-05T15:11:34+0330]: |__>try 5 of 5 to start echoService
 [2019-02-05T15:11:36+0330]: After 5 tries echoService could not be started --> BackOff and Exit
+[2019-02-05T15:32:24+0330]: |_Fetch configs
+[2019-02-05T15:32:24+0330]: |__>serviceName fetched as echoService
+[2019-02-05T15:32:24+0330]: |__>checkInterval fetched as 1
+[2019-02-05T15:32:24+0330]: |__>backOffNum fetched as 5
+[2019-02-05T15:32:24+0330]: |__>restartAttemptsInterval fetched as 2
+[2019-02-05T15:32:24+0330]: echoService is not alive --> Attempt to start
+[2019-02-05T15:32:24+0330]: |_Attempting start the service echoService
+[2019-02-05T15:32:24+0330]: |__>try 1 of 5 to start echoService
+[2019-02-05T15:32:26+0330]: |__>try 2 of 5 to start echoService
+[2019-02-05T15:32:28+0330]: |__>try 3 of 5 to start echoService
+[2019-02-05T15:32:30+0330]: |__>try 4 of 5 to start echoService
+[2019-02-05T15:32:33+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:34+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:35+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:36+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:38+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:39+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:40+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:41+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:32:42+0330]: echoService is not alive --> Attempt to start
+[2019-02-05T15:32:42+0330]: |_Attempting start the service echoService
+[2019-02-05T15:32:42+0330]: |__>try 1 of 5 to start echoService
+[2019-02-05T15:32:44+0330]: |__>try 2 of 5 to start echoService
+[2019-02-05T15:32:46+0330]: |__>try 3 of 5 to start echoService
+[2019-02-05T15:32:48+0330]: |__>try 4 of 5 to start echoService
+[2019-02-05T15:32:50+0330]: |__>try 5 of 5 to start echoService
+[2019-02-05T15:32:52+0330]: After 5 tries echoService could not be started --> BackOff and Exit
+[2019-02-05T15:35:55+0330]: |_Fetch configs
+[2019-02-05T15:35:55+0330]: |__>serviceName fetched as echoService
+[2019-02-05T15:35:55+0330]: |__>checkInterval fetched as 1
+[2019-02-05T15:35:55+0330]: |__>backOffNum fetched as 5
+[2019-02-05T15:35:55+0330]: |__>restartAttemptsInterval fetched as 2
+[2019-02-05T15:35:55+0330]: echoService is not alive --> Attempt to start
+[2019-02-05T15:35:55+0330]: |_Attempting start the service echoService
+[2019-02-05T15:35:56+0330]: |__>try 1 of 5 to start echoService
+[2019-02-05T15:35:58+0330]: |__>try 2 of 5 to start echoService
+[2019-02-05T15:36:00+0330]: |__>try 3 of 5 to start echoService
+[2019-02-05T15:36:02+0330]: |__>try 4 of 5 to start echoService
+[2019-02-05T15:36:05+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:06+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:07+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:08+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:09+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:10+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:11+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-05T15:36:12+0330]: echoService is not alive --> Attempt to start
+[2019-02-05T15:36:12+0330]: |_Attempting start the service echoService
+[2019-02-05T15:36:12+0330]: |__>try 1 of 5 to start echoService
+[2019-02-05T15:36:14+0330]: |__>try 2 of 5 to start echoService
+[2019-02-05T15:36:16+0330]: |__>try 3 of 5 to start echoService
+[2019-02-05T15:36:18+0330]: |__>try 4 of 5 to start echoService
+[2019-02-05T15:36:20+0330]: |__>try 5 of 5 to start echoService
+[2019-02-05T15:36:23+0330]: After 5 tries echoService could not be started --> BackOff and Exit
+[2019-02-05T15:44:35+0330]: |_Fetch configs
+[2019-02-05T15:44:35+0330]: |__>serviceName fetched as 
+[2019-02-05T15:44:36+0330]: |__>checkInterval fetched as 
+[2019-02-05T15:44:36+0330]: |__>backOffNum fetched as 
+[2019-02-05T15:44:36+0330]: |__>restartAttemptsInterval fetched as 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:36+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:36+0330]: |_Attempting start the service 
+[2019-02-05T15:44:36+0330]: |__>try 1 of  to start 
+[2019-02-05T15:44:37+0330]:  is not alive --> Attempt to start
+[2019-02-05T15:44:37+0330]: |_Attempting start the service 
+[2019-02-05T15:44:37+0330]: |__>try 1 of  to start 
+[2019-02-05T15:45:08+0330]: ./config/config.json does not exist --> Exit
+[2019-02-05T15:47:00+0330]: ./services does not exist --> Exit
+[2019-02-05T15:47:21+0330]: ./services does not exist --> Exit
