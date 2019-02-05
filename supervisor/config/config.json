@@ -1,0 +1,6 @@
+{
+	"serviceName" : "echoService",
+	"checkInterval" : "1",
+	"backOffNum" : "5",
+	"restartAttemptsInterval" : "2"
+}

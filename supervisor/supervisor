@@ -1,12 +1,19 @@
 #!/bin/bash
 #https://google.github.io/styleguide/shell.xml
-serviceName=$1
-checkInterval=$2
-backOffNum=$3
-restartAttemptsInterval=$4
 
+configFile=./config/config.json
 serviceDirectory=./services
 logFile=./logs/supervisor.log
+
+configParams=(serviceName checkInterval backOffNum restartAttemptsInterval)
+
+function fetchConfig {
+	log "|-Fetch configs"
+	for param in ${configParams[@]}
+	do
+		eval "${param}=$(jq .${param} ${configFile})"
+	done
+}
 
 function log {
 	echo [$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@ >> ${logFile}
@@ -33,8 +40,7 @@ function startAttempt {
 		fi
 		sleep ${restartAttemptsInterval}
 	done
-	log "${try} ${backOffNum}"
-	if [[ (${try} -eq ${backOffNum}) && (! isAlive) ]]
+	if [[ ${try} -eq ${backOffNum} ]] && ! isAlive
 	then
 		echo "backoff"
 	else
@@ -47,14 +53,13 @@ function backOff {
 	exit
 }
 
+fetchConfig
 while true
 do
 	if ! isAlive
 	then
 		log "${serviceName} is not alive --> Attempt to start"
-		result= $(startAttempt)
-		log "result=${result}"
-		if [[ ${result} -eq "backoff" ]]
+		if [[ "$(startAttempt)" == "backoff" ]]
 		then
 			backOff
 		fi		
@@ -63,5 +68,7 @@ do
 	fi
 	sleep ${checkInterval}
 done
+
+
 
 
