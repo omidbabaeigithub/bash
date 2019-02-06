@@ -23,4 +23,4 @@ A Daemon Supervisor which should check that the process is running and at all ti
 	            "RESTART_ATTEPT_INTERVAL" : "2"
             }
 
-  - `service`: Includes services which should be monitored, you can create a soft link!
+  - `service`: Includes services which should be monitored; you can create a soft link!
