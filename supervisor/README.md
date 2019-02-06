@@ -20,7 +20,7 @@ A Daemon Supervisor which should check that the process is running and at all ti
         # example:
             {
 	            "SERVICE_NAME" : "echoService",
-		    "ARGUMENTS" : "5 5",
+	            "ARGUMENTS" : "5 5",
 	            "CHECK_INTERVAL" : "1",
 	            "BACKOFF_NUM" : "5",
 	            "RESTART_ATTEPT_INTERVAL" : "2"
