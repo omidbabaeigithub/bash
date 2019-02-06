@@ -1,0 +1,153 @@
+[2019-02-06T09:51:10+0330]: |_Fetch configs
+[2019-02-06T09:51:10+0330]: |__>SERVICE_NAME => echoService
+[2019-02-06T09:51:10+0330]: |__>ARGUMENTS => 5 5
+[2019-02-06T09:51:10+0330]: |__>CHECK_INTERVAL => 1
+[2019-02-06T09:51:10+0330]: |__>BACKOFF_NUM => 5
+[2019-02-06T09:51:10+0330]: |__>RESTART_ATTEPT_INTERVAL => 2
+[2019-02-06T09:51:10+0330]: echoService is not alive --> Attempt to start
+[2019-02-06T09:51:10+0330]: |_Attempting start the service echoService
+[2019-02-06T09:51:10+0330]: |__>try 1 of 5 to start echoService
+[2019-02-06T09:51:10+0330]: |___> /home/omid/bash-scripts/bash/supervisor/services/echoService 5 5
+[2019-02-06T09:51:13+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:15+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:16+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:17+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:18+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:19+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:20+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:21+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:22+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:23+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:24+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:25+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:26+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:27+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:28+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:29+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:30+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:31+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:32+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:34+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:35+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:36+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:37+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:38+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:39+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:40+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:41+0330]: echoService is not alive --> Attempt to start
+[2019-02-06T09:51:41+0330]: |_Attempting start the service echoService
+[2019-02-06T09:51:41+0330]: |__>try 1 of 5 to start echoService
+[2019-02-06T09:51:41+0330]: |___> /home/omid/bash-scripts/bash/supervisor/services/echoService 5 5
+[2019-02-06T09:51:44+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:45+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:46+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:47+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:48+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:49+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:50+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:51+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:53+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:54+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:55+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:56+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:57+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:58+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:51:59+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:00+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:01+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:02+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:03+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:04+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:05+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:06+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:07+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:08+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:09+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:11+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:12+0330]: echoService is not alive --> Attempt to start
+[2019-02-06T09:52:12+0330]: |_Attempting start the service echoService
+[2019-02-06T09:52:12+0330]: |__>try 1 of 5 to start echoService
+[2019-02-06T09:52:12+0330]: |___> /home/omid/bash-scripts/bash/supervisor/services/echoService 5 5
+[2019-02-06T09:52:15+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:16+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:17+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:18+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:19+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:20+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:21+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:22+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:23+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:24+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:25+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:26+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:27+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:28+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:29+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:31+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:32+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:33+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:34+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:35+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:36+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:37+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:38+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:39+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:40+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:41+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:42+0330]: echoService is not alive --> Attempt to start
+[2019-02-06T09:52:42+0330]: |_Attempting start the service echoService
+[2019-02-06T09:52:42+0330]: |__>try 1 of 5 to start echoService
+[2019-02-06T09:52:42+0330]: |___> /home/omid/bash-scripts/bash/supervisor/services/echoService 5 5
+[2019-02-06T09:52:45+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:46+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:47+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:49+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:50+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:51+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:52+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:53+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:54+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:55+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:56+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:57+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:58+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:52:59+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:00+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:01+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:02+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:03+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:04+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:05+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:06+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:07+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:09+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:10+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:11+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:12+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:13+0330]: echoService is not alive --> Attempt to start
+[2019-02-06T09:53:13+0330]: |_Attempting start the service echoService
+[2019-02-06T09:53:13+0330]: |__>try 1 of 5 to start echoService
+[2019-02-06T09:53:13+0330]: |___> /home/omid/bash-scripts/bash/supervisor/services/echoService 5 5
+[2019-02-06T09:53:16+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:17+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:18+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:19+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:20+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:21+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:22+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:23+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:24+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:25+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:27+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:28+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:29+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:30+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:31+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:32+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:33+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:34+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:35+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:36+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:37+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:38+0330]: echoService is alive --> Check again 1 seconds later
+[2019-02-06T09:53:39+0330]: echoService is alive --> Check again 1 seconds later
