@@ -8,7 +8,7 @@ SERVICE_DIR=./services
 LOG_DIR=./logs
 LOG_FILE="${LOG_DIR}"/supervisor.log
 
-CONFIG_PARAMS=(serviceName checkInterval backOffNum restartAttemptsInterval)
+CONFIG_PARAMS=(SERVICE_NAME CHECK_INTERVAL BACKOFF_NUM RESTART_ATTEPT_INTERVAL)
 FILES=(CONFIG_FILE SERVICE_DIR)
 
 #######################################

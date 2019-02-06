@@ -1,6 +1,6 @@
 {
-	"serviceName" : "echoService",
-	"checkInterval" : "1",
-	"backOffNum" : "5",
-	"restartAttemptsInterval" : "2"
+	"SERVICE_NAME" : "echoService",
+	"CHECK_INTERVAL" : "1",
+	"BACKOFF_NUM" : "5",
+	"RESTART_ATTEPT_INTERVAL" : "2"
 }
