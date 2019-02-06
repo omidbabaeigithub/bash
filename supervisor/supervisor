@@ -1,35 +1,14 @@
 #!/bin/bash
 #
 # Check health of a specified process or service that is defined in server directory
-# Change config/config.json parameters to handle the behaviour of daemon
+# Change config/config.json parameters to handle the behaviour of supervisor
 
-CONFIG_FILE=./config/config.json
-SERVICE_DIR=./services
-LOG_DIR=./logs
+CONFIG_FILE=$(realpath config/config.json)
+SERVICE_DIR=$(realpath services)
+LOG_DIR=$(realpath logs)
 LOG_FILE="${LOG_DIR}"/supervisor.log
 
-CONFIG_PARAMS=(SERVICE_NAME CHECK_INTERVAL BACKOFF_NUM RESTART_ATTEPT_INTERVAL)
-FILES=(CONFIG_FILE SERVICE_DIR)
-
-#######################################
-# Create log directory and check  
-# 	essential directories
-# Globals:
-#   LOG_DIR
-# Arguments:
-#   None
-# Returns:
-#   None
-#######################################
-function initialization {
-	mkdir "${LOG_DIR}" 2>/dev/null
-	for file in "${FILES[@]}"; do
-		if [[ ! -f "${!file}" ]]; then
-			log "${!file} does not exist --> Exit"
-			exit
-		fi
-	done	
-}
+CONFIG_PARAMS=(SERVICE_NAME ARGUMENTS CHECK_INTERVAL BACKOFF_NUM RESTART_ATTEPT_INTERVAL)
 
 #######################################
 # Fetch config parameters from 
@@ -41,12 +20,20 @@ function initialization {
 #   None
 # Returns:
 #   None
+# Functions: 
+#	log
 #######################################
 function fetchConfigs {
+	if [[ ! -f ${CONFIG_FILE} ]]; then
+		log "${CONFIG_FILE}  does not exist --> Exit"
+		exit
+	fi
 	log "|_Fetch configs"
+
+	# Extract config parameters from config.json 
 	for param in ${CONFIG_PARAMS[@]}; do
 		eval "${param}=$(jq .${param} ${CONFIG_FILE})"
-		log "|__>${param} fetched as ${!param}"
+		log "|__>${param} => ${!param}"
 	done
 }
 
@@ -58,63 +45,89 @@ function fetchConfigs {
 #   A Text
 # Returns:
 #   None
+# Functions: 
+#	None
 #######################################
 function log {
+	if [[ ! -d "${LOG_DIR}" ]]; then
+		echo "${LOG_DIR}  does not exist --> Exit" >&2
+		exit
+	fi
 	echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >> ${LOG_FILE}
 }
 
 #######################################
 # Check whether the service is running 
-# 	or not available 
+# 	or not  
 # Globals:
-#   serviceName
+#   SERVICE_NAME
 # Arguments:
 #   None
 # Returns:
 #   None
+# Functions: 
+#	None
 #######################################
 function isAlive {
-	pgrep -x ${serviceName} >/dev/null
+	pgrep -x ${SERVICE_NAME} >/dev/null
 }
 
 #######################################
 # Start the process or service   
 # Globals:
-#   serviceName
+#   SERVICE_NAME
 #	SERVICE_DIR
 # Arguments:
 #   None
 # Returns:
 #   None
+# Functions: 
+#   log
 #######################################
 function startService {
-	nohup "${SERVICE_DIR}/${serviceName}" >/dev/null 2>&1 &
+	if [[ ! -d "${SERVICE_DIR}" ]]; then
+		log "${SERVICE_DIR}  does not exist --> Exit"
+		exit
+	else
+		if [[ ! -f "${SERVICE_DIR}/${SERVICE_NAME}" ]]; then
+			log "${SERVICE_DIR}/${SERVICE_NAME}  does not exist --> Exit"
+			exit
+		fi
+	fi
+	log "|___> ${SERVICE_DIR}/${SERVICE_NAME} ${ARGUMENTS}"
+
+	# Start service
+	nohup "${SERVICE_DIR}/${SERVICE_NAME}" ${ARGUMENTS} >/dev/null 2>&1 &
 }
 
 #######################################
 # Attempt to start the process or service   
 # Globals:
-#   serviceName
+#   SERVICE_NAME
 #	SERVICE_DIR
-#	backOffNum
-#	restartAttemptsInterval
+#	BACKOFF_NUM
+#	RESTART_ATTEPT_INTERVAL
 # Arguments:
 #   None
 # Returns:
 #   None
+# Functions: 
+#   log
+#   isAlive
+#   startService
 #######################################
 function startAttempt {
-	log "|_Attempting start the service ${serviceName}"
-	for try in $(seq 1 ${backOffNum}); do
+	log "|_Attempting start the service ${SERVICE_NAME}"
+	for try in $(seq 1 ${BACKOFF_NUM}); do
 		if ! isAlive; then
-			log "|__>try ${try} of ${backOffNum} to start ${serviceName}"
+			log "|__>try ${try} of ${BACKOFF_NUM} to start ${SERVICE_NAME}"
 			startService	
 		else
 			break
 		fi
-		sleep ${restartAttemptsInterval}
+		sleep ${RESTART_ATTEPT_INTERVAL}
 	done
-	if [[ ${try} -eq ${backOffNum} ]] && ! isAlive;	then
+	if [[ ${try} -eq ${BACKOFF_NUM} ]] && ! isAlive;	then
 		echo "backoff"
 	else
 		echo "continue"
@@ -124,47 +137,69 @@ function startAttempt {
 #######################################
 # Back off trying to start the process   
 # Globals:
-#   serviceName
-#	backOffNum
+#   SERVICE_NAME
+#	BACKOFF_NUM
 # Arguments:
 #   None
 # Returns:
 #   None
+# Functions: 
+#   log
 #######################################
 function backOff {
-	log "|__>After ${backOffNum} tries ${serviceName} could not be started --> BackOff and Exit"
+	log "|__>After ${BACKOFF_NUM} tries ${SERVICE_NAME} could not be started --> BackOff and Exit"
 	exit
 }
 
-
 #######################################
-# Main function   
+# Back off trying to start the process   
 # Globals:
-#   serviceName
-#	checkInterval
+#   SERVICE_NAME
+#	CHECK_INTERVAL
 # Arguments:
 #   None
 # Returns:
 #   None
+# Functions: 
+#	log
+#   isAlive
+#   startAttempt
+#   backOff
 #######################################
-function main {
-	initialization
-	fetchConfigs
-
+function startChecking {
 	while true; do
 		if ! isAlive; then
-			log "${serviceName} is not alive --> Attempt to start"
+			log "${SERVICE_NAME} is not alive --> Attempt to start"
 			if [[ "$(startAttempt)" == "backoff" ]]; then
 				backOff
 			fi		
 		else
-			log "${serviceName} is alive --> Check again ${checkInterval} seconds later"
+			log "${SERVICE_NAME} is alive --> Check again ${CHECK_INTERVAL} seconds later"
 		fi
-		sleep ${checkInterval}
+		sleep ${CHECK_INTERVAL}
 	done
 }
 
+#######################################
+# Main function   
+# Globals:
+#   None
+#	None
+# Arguments:
+#   None
+# Returns:
+#   None
+# Functions: 
+#   fetchConfigs
+#   startChecking
+#######################################
+function main {
+	fetchConfigs
+	startChecking	
+}
+
 main
+
 
 
 
