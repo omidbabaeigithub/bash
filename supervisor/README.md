@@ -9,6 +9,8 @@ A Daemon Supervisor which should check that the process is running and at all ti
   
         - `SERVICE_NAME`: Name of the process or service to be monitored and is located in `service` directory
 	
+	- `ARGUMENTS`: Service runtime arguments
+	
         - `CHECK_INTERVAL`: Checking interval in seconds
 	
         - `BACKOFF_NUM`: Number of tries before backing off
@@ -18,6 +20,7 @@ A Daemon Supervisor which should check that the process is running and at all ti
         # example:
             {
 	            "SERVICE_NAME" : "echoService",
+		    "ARGUMENTS" : "5 5",
 	            "CHECK_INTERVAL" : "1",
 	            "BACKOFF_NUM" : "5",
 	            "RESTART_ATTEPT_INTERVAL" : "2"
