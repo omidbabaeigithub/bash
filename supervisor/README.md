@@ -5,7 +5,7 @@ A Daemon Supervisor which should check that the process is running and at all ti
 
 ## Directories
 
-  - `config`: include config.json which contains variables such as
+\n  - `config`: include config.json which contains variables such as
         - `SERVICE_NAME`: Name of the process or service to be monitored and is located in `service` directory
         - `CHECK_INTERVAL`: Checking interval in seconds
         - `BACKOFF_NUM`: Number of tries before backing off
